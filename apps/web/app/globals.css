@@ -1,3 +1,17 @@
+/* apps/web/app/globals.css - Tailwind v4 style */
+@import "tailwindcss";
+@import "@repo/theme";   /* imports design tokens */
+
+/* ensure Tailwind scans UI package classes */
+@source "@repo/ui";
+
+/* optional: app-level overrides */
+:root {
+  font-family: var(--font-sans);
+}
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
