@@ -1,3 +1,4 @@
+"use client";
 import "./globals.css";
 import Image, { type ImageProps } from "next/image";
 import { Button } from "@repo/ui/button";
