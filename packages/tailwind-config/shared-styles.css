@@ -1,0 +1,5 @@
+/* v4: single-line import */
+@import "tailwindcss";
+
+/* add any shared utility/component overrides or CSS variables here */
+/* e.g. define design tokens using @theme or CSS variables */
