@@ -8,7 +8,9 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+     "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
@@ -17,7 +19,10 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.33.0",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "@repo/tailwind-config": "workspace:*",
+    "tailwindcss": "workspace:*",
+    "autoprefixer": "workspace:*"
   },
   "dependencies": {
     "react": "^19.1.0",

@@ -1,0 +1,5 @@
+/* if using Tailwind v4 */
+@import "tailwindcss";
+@import "@repo/tailwind-config";
+
+/* component-level layer or custom classes you want to ship with the UI lib */
