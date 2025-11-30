@@ -1,4 +1,4 @@
-export * from "./Button";
+export * from "./SharedButton";
 
 export * from "./Card";
 export * from "./Code";
