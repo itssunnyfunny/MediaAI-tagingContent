@@ -10,7 +10,7 @@ interface SidebarProps {
 export function Sidebar({ className, collapsed = false, onToggle }: SidebarProps) {
     return (
         <aside
-            className={`h-screen bg-black/40 backdrop-blur-xl border-r border-white/10 flex flex-col transition-all duration-300 ${collapsed ? "w-20" : "w-64"
+            className={`h-[calc(100vh-2rem)] bg-black/40 backdrop-blur-xl border border-white/10 flex flex-col transition-all duration-300 rounded-2xl ${collapsed ? "w-20" : "w-64"
                 } ${className || ""}`}
         >
             <div className={`flex items-center ${collapsed ? "justify-center" : "justify-between"} p-6 mb-4`}>

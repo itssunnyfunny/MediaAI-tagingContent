@@ -7,17 +7,17 @@ export default function Home() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-[url('/grid.svg')] bg-fixed bg-cover">
+    <div className="flex min-h-screen bg-[url('/grid.svg')] bg-fixed bg-cover p-4 gap-4">
       {/* Sidebar */}
       <Sidebar
-        className="hidden md:flex fixed left-0 top-0 bottom-0 z-50"
+        className="hidden md:flex sticky top-4 z-50"
         collapsed={isSidebarCollapsed}
         onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
       />
 
       {/* Main Content */}
-      <main className={`flex-1 p-8 transition-all duration-300 ${isSidebarCollapsed ? "md:ml-20" : "md:ml-64"}`}>
-        <div className="max-w-5xl mx-auto space-y-8">
+      <main className="flex-1 transition-all duration-300 flex justify-center">
+        <div className="w-full max-w-5xl space-y-8">
 
           {/* Header */}
           <header className="flex justify-between items-center mb-8">
