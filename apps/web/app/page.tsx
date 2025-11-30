@@ -1,13 +1,22 @@
+"use client";
+
+import { useState } from "react";
 import { GlassCard, Sidebar, Input, Button } from "@repo/ui";
 
 export default function Home() {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
   return (
     <div className="flex min-h-screen bg-[url('/grid.svg')] bg-fixed bg-cover">
       {/* Sidebar */}
-      <Sidebar className="hidden md:flex fixed left-0 top-0 bottom-0 z-50" />
+      <Sidebar
+        className="hidden md:flex fixed left-0 top-0 bottom-0 z-50"
+        collapsed={isSidebarCollapsed}
+        onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+      />
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-64 p-8">
+      <main className={`flex-1 p-8 transition-all duration-300 ${isSidebarCollapsed ? "md:ml-20" : "md:ml-64"}`}>
         <div className="max-w-5xl mx-auto space-y-8">
 
           {/* Header */}
