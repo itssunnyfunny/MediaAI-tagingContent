@@ -1986,6 +1986,11 @@ ohash@^2.0.11:
   resolved "https://registry.npmjs.org/ohash/-/ohash-2.0.11.tgz"
   integrity sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==
 
+openai@^6.9.1:
+  version "6.9.1"
+  resolved "https://registry.npmjs.org/openai/-/openai-6.9.1.tgz"
+  integrity sha512-vQ5Rlt0ZgB3/BNmTa7bIijYFhz3YBceAA3Z4JuoMSBftBF9YqFHIEhZakSs+O/Ad7EaoEimZvHxD5ylRjN11Lg==
+
 optionator@^0.9.3:
   version "0.9.4"
   resolved "https://registry.npmjs.org/optionator/-/optionator-0.9.4.tgz"
@@ -2755,6 +2760,7 @@ uri-js@^4.2.2:
     "@repo/tailwind-config" "*"
     "@repo/ui" "*"
     next "^15.4.2"
+    openai "^6.9.1"
     react "^19.1.0"
     react-dom "^19.1.0"
 

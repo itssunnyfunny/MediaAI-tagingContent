@@ -1,10 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { GlassCard, Sidebar, Input, Button } from "@repo/ui";
+import { generateTags } from "./actions/generate-tags";
 
 export default function Home() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [content, setContent] = useState("");
+  const [generatedTags, setGeneratedTags] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleGenerateTags = async () => {
+    if (!content) return;
+    setIsLoading(true);
+    try {
+      const tags = await generateTags(content);
+      setGeneratedTags(tags);
+    } catch (error) {
+      console.error("Failed to generate tags", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-[url('/grid.svg')] bg-fixed bg-cover p-4 gap-4">
@@ -41,16 +58,35 @@ export default function Home() {
               <Input placeholder="https://example.com/article..." />
               <div className="relative">
                 <textarea
+                  value={content}
+                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value)}
                   className="w-full h-40 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all resize-none"
                   placeholder="Or paste text content here..."
                 />
               </div>
               <div className="flex justify-end">
-                <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg shadow-lg shadow-purple-500/30 font-medium transition-all transform hover:scale-105">
-                  ✨ Generate Tags
+                <Button
+                  onClick={handleGenerateTags}
+                  disabled={isLoading}
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg shadow-lg shadow-purple-500/30 font-medium transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isLoading ? "Generating..." : "✨ Generate Tags"}
                 </Button>
               </div>
             </div>
+
+            {generatedTags.length > 0 && (
+              <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
+                <h4 className="text-lg font-medium text-white mb-3">Generated Tags:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {generatedTags.map((tag, index) => (
+                    <span key={index} className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </GlassCard>
 
           {/* Secondary Content Grid */}

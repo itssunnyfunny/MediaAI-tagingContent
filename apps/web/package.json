@@ -11,10 +11,11 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "*",
     "@repo/db": "*",
     "@repo/tailwind-config": "*",
+    "@repo/ui": "*",
     "next": "^15.4.2",
+    "openai": "^6.9.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
