@@ -2,7 +2,7 @@
 
 import { useState, ChangeEvent } from "react";
 import { GlassCard, Sidebar, Input, Button } from "@repo/ui";
-import { generateTags } from "./actions/generate-tags";
+
 
 export default function Home() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -14,8 +14,20 @@ export default function Home() {
     if (!content) return;
     setIsLoading(true);
     try {
-      const tags = await generateTags(content);
-      setGeneratedTags(tags);
+      const response = await fetch('/api/tag_gererate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate tags');
+      }
+
+      const data = await response.json();
+      setGeneratedTags(data.tags);
     } catch (error) {
       console.error("Failed to generate tags", error);
     } finally {
