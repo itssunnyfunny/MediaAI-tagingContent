@@ -14,7 +14,7 @@ export default function Home() {
     if (!content) return;
     setIsLoading(true);
     try {
-      const response = await fetch('/api/tag_gererate', {
+      const response = await fetch('/api/tag_generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
