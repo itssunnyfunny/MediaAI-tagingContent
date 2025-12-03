@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getTagsFromLLM } from '../../../lib/openai';
+import { getTagsFromGemini } from '../../../lib/gemini';
 
 export async function POST(req: Request) {
     try {
@@ -12,7 +12,7 @@ export async function POST(req: Request) {
             );
         }
 
-        const tags = await getTagsFromLLM(content);
+        const tags = await getTagsFromGemini(content);
 
         return NextResponse.json({ tags });
     } catch (error) {
