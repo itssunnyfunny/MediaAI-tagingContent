@@ -28,6 +28,7 @@ export default function Home() {
 
       const data = await response.json();
       setGeneratedTags(data.tags);
+      console.log(data.tags);
     } catch (error) {
       console.error("Failed to generate tags", error);
     } finally {
