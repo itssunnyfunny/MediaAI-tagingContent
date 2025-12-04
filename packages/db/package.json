@@ -3,18 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "generate": "prisma generate"
+  "dependencies": {
+    "@prisma/client": "7"
   },
   "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@types/pg": "^8.15.6",
-    "prisma": "latest",
-    "tsx": "^4.21.0"
-  },
-  "dependencies": {
-    "@prisma/adapter-pg": "latest",
-    "@prisma/client": "latest",
-    "pg": "^8.16.3"
+    "prisma": "7"
   }
 }
