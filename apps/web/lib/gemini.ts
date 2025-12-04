@@ -16,7 +16,7 @@ export async function getTagsFromGemini(content: string): Promise<string[]> {
     console.log('GEMINI_API_KEY is present, starting generation...');
 
     try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
         const prompt = `You are a helpful assistant that generates relevant tags for the given content. 
         Return a JSON array of 5 strings representing the tags. 
