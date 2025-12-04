@@ -7,13 +7,14 @@
     "generate": "prisma generate"
   },
   "devDependencies": {
+    "@types/node": "^24.10.1",
     "@types/pg": "^8.15.6",
-    "prisma": "^6.16.2",
+    "prisma": "latest",
     "tsx": "^4.21.0"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.0.1",
-    "@prisma/client": "^6.16.2",
+    "@prisma/adapter-pg": "latest",
+    "@prisma/client": "latest",
     "pg": "^8.16.3"
   }
 }
