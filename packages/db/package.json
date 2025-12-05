@@ -1,12 +1,20 @@
 {
   "name": "@repo/db",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "7"
   },
   "devDependencies": {
-    "prisma": "7"
+    "@repo/typescript-config": "*",
+    "@types/node": "^22.15.3",
+    "prisma": "7",
+    "typescript": "5.9.2"
   }
 }

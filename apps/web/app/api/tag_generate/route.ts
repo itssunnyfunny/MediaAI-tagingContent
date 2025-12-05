@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getTagsFromGemini } from '../../../lib/gemini';
+import { prisma } from '@repo/db';
 
 export async function POST(req: Request) {
     try {
